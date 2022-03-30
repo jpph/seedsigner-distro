@@ -24,7 +24,7 @@ On linux :
 $ dmesg|grep Attached | tail --lines=1
 [583494.891574] sd 19:0:0:0: [sdf] Attached SCSI removable disk
 ```
-2) Write ISO to USB::
+2) Write ISO to USB:: (replace sdf by the real device path)
 ```
 $ sudo dd if=path/to/seedsigner_distro.iso of=/dev/sdf
 $ lsblk | grep sdf
