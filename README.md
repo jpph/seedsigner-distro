@@ -1,6 +1,6 @@
 # SeedSigner Distro
 
-SeedSigner Distro can be started from a CDROM or an USB stick on a computer and being used to sign air gapped transactions. T
+SeedSigner Distro can be started from a CDROM or an USB stick on a computer and being used to sign air gapped transactions. 
 
 
 ## Setup Seedsigner Distribution  to a CDROM or USB stick
