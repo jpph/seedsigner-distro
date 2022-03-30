@@ -5,18 +5,17 @@ SeedSigner Distro can be started from a CDROM or an USB stick on a computer and 
 
 ## Setup Seedsigner Distribution  to a CDROM or USB stick
 
+the iso image is hybrid and can be burned to cd or usb.
 
 **CDROM:**  
 use your favorite program to burn the ISO to CDROM.
 Nothing special. CDROMs are naturally read-only and tamper resistant.
 
 **USB:**  
-If you don't burn Seedsigner distro to a CDROM, writing Seedsigner distro to a
-USB stick with a hardware read-write toggle (e.g., Kanguru FlashBlu) is
-the next best thing.
 
-On USB sticks without write protection, you can remove the Seedsigner distro USB after
-booting as an additional security measure. 
+On windows you can use balena etcher to write the iso to usb.
+
+On linux :
 
 1) Insert USB stick and detect the device path::
 ```
@@ -33,7 +32,7 @@ sdf                                8:80   1   7.4G  1 disk
 
 ## How to build from source
 
-Build is done using the build_seedsigner_distro.sh script
+Build is done using the build_seedsigner_distro.sh script. I use Ubuntu 20.04 to build it.
 
 ```
 $ sudo ./build_seedsigner_distro.sh
