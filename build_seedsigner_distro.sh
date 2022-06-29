@@ -19,9 +19,6 @@ debootstrap \
     $HOME/LIVE_BOOT/chroot \
     http://ftp.de.debian.org/debian/
 
-wget -q https://github.com/jpph/seedsigner-distro/releases/download/first/seedsigner.AppImage
-chmod +x seedsigner.AppImage
-mv seedsigner.AppImage  $HOME/LIVE_BOOT/chroot/root/
 
 cat << EOF >$HOME/LIVE_BOOT/chroot/chroot.sh
 echo "seedsignerdistro" > /etc/hostname
@@ -37,11 +34,33 @@ apt-get install -y --no-install-recommends \
     xterm \
     fuse \
     libfuse2 \
-    python3-zbar
+    python3-tk \
+    python3-zbar \
+    git \
+    wget \
+    unzip \
+    rsync \
+    python3-pip \
+    libzbar0
+
+cd /root
+
+python3 -m pip install --upgrade Pillow
+python3 -m pip install --upgrade setuptools
+pip3 install git+https://github.com/jreesun/urtypes.git@e0d0db277ec2339650343eaf7b220fffb9233241
+pip3 install git+https://github.com/seedsigner/pyzbar.git@c3c237821c6a20b17953efe59b90df0b514a1c03#egg=pyzbar 
+pip3 install embit dataclasses qrcode tk opencv-python
+
+cd /root
+git clone https://github.com/SeedSigner/seedsigner.git
+cd seedsigner/src
+wget https://github.com/enteropositivo/seedsigner-emulator/archive/refs/heads/master.zip
+unzip master.zip
+rsync -a seedsigner-emulator-master/seedsigner .
 
 
 
-echo "exec xterm -geometry 90x30+700+0 -hold -e /root/seedsigner.AppImage" > /root/.xinitrc;
+echo "cd /root/seedsigner/src && exec xterm -geometry 90x30+700+0 -hold -e python3 main.py" > /root/.xinitrc;
 chmod +x /root/.xinitrc;
 cat << EOFCHROOT > /etc/systemd/system/x11.service
 [Service]
