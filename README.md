@@ -48,5 +48,5 @@ $ sudo ./build_seedsigner_distro.sh
 
 This project was inspired by airgap.it / airgap-distro.  
 Seedsigner.appimage is from @kornpow  
-new emulator is from Enteropositivo
+new emulator is from Enteropositivo   
 latest build script inspired from https://willhaley.com/blog/custom-debian-live-environment/  
